@@ -29,9 +29,8 @@ loadSound("heart", "assets/audio/heart.wav");
 loadSound("match", "assets/audio/match.wav");
 loadSound("icedrop", "assets/audio/icedrop.wav");
 loadSound("shoot", "assets/audio/shoot.wav");
-loadSound("song", "assets/audio/song.mp3");
 
-let highScore = 0;
+let highScore = localStorage.getItem("highscore");
 let score = 0;
 
 scene("game", () => {
@@ -447,6 +446,7 @@ scene("gameover", (score) => {
 
     if (score > highScore) {
         highScore = score;
+        localStorage.setItem("highscore",highScore);
     }
 
     add([

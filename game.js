@@ -45,22 +45,28 @@ scene("game", () => {
     ], "game")
     
     //background
-    add([
-        sprite("bg", {width: width(), height: height()}),
-        layer("bg")
-    ]);
-    add([
-        sprite("mg3", {width: width(), height: height()}),
-        layer("bg")
-    ]);
-    add([
-        sprite("mg2", {width: width(), height: height()}),
-        layer("bg")
-    ]);
-    add([
-        sprite("mg1", {width: width(), height: height()}),
-        layer("mg")
-    ]);
+    let background = {
+        add: function() {
+            add([
+                sprite("bg", {width: width(), height: height()}),
+                layer("bg")
+            ]);
+            add([
+                sprite("mg3", {width: width(), height: height()}),
+                layer("bg")
+            ]);
+            add([
+                sprite("mg2", {width: width(), height: height()}),
+                layer("bg")
+            ]);
+            add([
+                sprite("mg1", {width: width(), height: height()}),
+                layer("mg")
+            ]);
+        }
+    }
+
+    background.add();
 
     const scoreText = add([
         text("Score: 0", {
@@ -71,7 +77,7 @@ scene("game", () => {
         layer("ui")
     ]);
 
-    //make player
+    //Make player
     const player = add([
         sprite("player"),
         scale(1.5),
@@ -83,7 +89,7 @@ scene("game", () => {
         layer("ui")
     ]);
 
-    //UI Heart
+    //Make UI Heart
     const hearts = add([
         sprite("heart"),
         scale(4),
@@ -264,8 +270,7 @@ scene("game", () => {
         }
     }
 
-    
-    loop(1.5, () => {
+    loop(1.7, () => {
         makePipes();
         redPipeCounter++;
         pipeCounter++;

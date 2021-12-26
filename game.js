@@ -84,6 +84,7 @@ scene("game", () => {
         layer("ui")
     ]);
 
+    //UI Heart
     const hearts = add([
         sprite("heart"),
         scale(4),
@@ -91,6 +92,7 @@ scene("game", () => {
         layer("ui")
     ])
 
+    //UI Heart Text
     const hpText = add([
         pos(50, 55),
         layer("ui"),
@@ -100,6 +102,7 @@ scene("game", () => {
         })
     ]);
 
+    //UI Iceball
     const iceballsAmmoIcon = add([
         sprite("iceball"),
         scale(0.8),
@@ -107,6 +110,7 @@ scene("game", () => {
         layer("ui")
     ])
 
+    //UI Iceball Text
     const iceballsAmmoText = add([
         pos(140, 55),
         layer("ui"),
@@ -125,6 +129,7 @@ scene("game", () => {
             area(),
             layer("ui"),
             origin("botleft"),
+            cleanup(3)
         ])
     }
 
@@ -137,6 +142,7 @@ scene("game", () => {
             area(),
             layer("ui"),
             origin("botleft"),
+            cleanup(3)
         ])
     }
 
@@ -149,6 +155,7 @@ scene("game", () => {
             area(),
             layer("game"),
             origin("botleft"),
+            cleanup(3)
         ])
     }
 
@@ -165,7 +172,8 @@ scene("game", () => {
                 area(),
                 layer("game"),
                 origin("botleft"),
-                lifespan(5, { fade: 0.5 })
+                lifespan(5, { fade: 0.5 }),
+                cleanup(3)
             ])
             play("shoot");
             shots--;
@@ -213,6 +221,7 @@ scene("game", () => {
                 area(),
                 {passed: false},
                 lifespan(15),
+                cleanup(3),
                 scale(1)
             ]);
             
@@ -224,6 +233,7 @@ scene("game", () => {
                 "redpipe",
                 area(),
                 lifespan(15),
+                cleanup(3),
                 scale(1)
             ]);
 
@@ -237,6 +247,7 @@ scene("game", () => {
                 area(),
                 {passed: false},
                 lifespan(15),
+                cleanup(3),
                 scale(1)
             ]);
             
@@ -248,6 +259,7 @@ scene("game", () => {
                 "pipe",
                 area(),
                 lifespan(15),
+                cleanup(3),
                 scale(1)
             ]);
         }
@@ -280,7 +292,8 @@ scene("game", () => {
             "bubble",
             scale(rand(1, 3)),
             area(),
-            lifespan(1, {fade: 1})
+            lifespan(1, {fade: 1}),
+            cleanup(3)
         ]);
     });
 
